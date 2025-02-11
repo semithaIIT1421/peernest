@@ -84,7 +84,7 @@ export default function Home() {
 
           <div className="mt-6">
             <h4 className="text-[15px]">
-              Don't have an account?
+               Don&apos;t have an account?
               <Link href="/components/SignUp" className="text-blue-500 hover:underline ml-2">
                 Register
               </Link>
