@@ -56,13 +56,7 @@ export default function Home() {
             {message}
           </p>
 
-          <label className="p-2">Username</label>
-          <input
-            className="border-2 border-black rounded-lg p-2 w-72"
-            type="email" // Make sure the input type is email
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+          
 
           <label className="p-2">Email</label>
           <input
