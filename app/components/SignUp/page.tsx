@@ -1,12 +1,15 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase/config";  // Adjusted import path
-import Link from 'next/link'; // Import Link from next/link
+import { auth } from "../../firebase/config";  
+import Link from 'next/link'; 
 
 export default function Home() {
   const [user, setUser] = useState(""); // To store the email
   const [password, setPassword] = useState(""); // To store the password
+  const router = useRouter();
+
 
   // Firebase sign-up function
   const sendDataBackend = async () => {
@@ -21,6 +24,10 @@ export default function Home() {
 
       console.log("User signed up successfully!");
       alert("User signed up successfully!");
+      
+      //If successfull user signed up redirect to login page
+      router.push("/");
+
     } catch (err) {
       if (err instanceof Error) {
         console.error("Error signing up:", err.message);

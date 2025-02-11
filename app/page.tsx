@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FirebaseError } from "firebase/app";
 
 export default function Home() {
+  const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -19,8 +20,8 @@ export default function Home() {
         throw new Error("Firebase auth is not initialized.");
       }
 
-      await signInWithEmailAndPassword(auth, username, password);
-      console.log("Attempting login with:", username, password);
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("Attempting login with:", email, password);
 
 
       setMessage("Logged in successfully!"); // Set success message
@@ -61,6 +62,14 @@ export default function Home() {
             type="email" // Make sure the input type is email
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+          />
+
+          <label className="p-2">Email</label>
+          <input
+            className="border-2 border-black rounded-lg p-2 w-72"
+            type="email" // Make sure the input type is email
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <label className="p-2">Password</label>

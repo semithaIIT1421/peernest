@@ -7,8 +7,9 @@ import { collection, addDoc, query, onSnapshot, orderBy, serverTimestamp } from 
 
 const Home = () => {
   const [message, setMessage] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [messages, setMessages] = useState<{ id: string, text: string, email: string, timestamp: any }[]>([]);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [_isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const router = useRouter();
 
